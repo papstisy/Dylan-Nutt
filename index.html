@@ -20,6 +20,7 @@
             align-items: center;
             min-height: 100vh;
             width: 100%;
+            position: relative;
         }
 
         .image-container {
@@ -29,17 +30,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-shrink: 0;
         }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .contact-link {
-            position: absolute;
-            bottom: 30px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 12px 30px;
             background-color: #007bff;
             color: white;
@@ -48,10 +53,32 @@
             font-size: 16px;
             transition: background-color 0.3s ease;
             z-index: 10;
+            white-space: nowrap;
         }
 
         .contact-link:hover {
             background-color: #0056b3;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            .contact-link {
+                bottom: 15px;
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .image-container {
+                height: 100vh;
+            }
+            
+            .contact-link {
+                bottom: 12px;
+                padding: 9px 20px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
